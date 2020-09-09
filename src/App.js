@@ -1,24 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Canvas from "./components/Canvas";
+import Controls from "./components/Controls";
+import "./App.css";
 
 function App() {
+  const [Width, setWidth] = useState(700);
+  const [Height, setHeight] = useState(700);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Canvas Width={Width} Height={Height} />
+      <Controls
+        Width={Width}
+        Height={Height}
+        setWidth={setWidth}
+        setHeight={setHeight}
+      />
     </div>
   );
 }
