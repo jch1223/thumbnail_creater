@@ -18,10 +18,13 @@ function Content({ Width, Height, TextType, Text, Text1, Text2 }) {
 }
 
 const CanvasWrap = styled.div`
+  overflow: scroll;
   display: inline-flex;
   width: 80%;
+  height: 100%;
   border-right: 1px solid #e2e2e2;
   justify-content: center;
+  align-items: center;
 `;
 
 export default Content;

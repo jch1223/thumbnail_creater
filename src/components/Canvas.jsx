@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import styled from "styled-components";
 
 function Canvas({ Width, Height, TextType, Text, Text1, Text2 }) {
   const canvasRef = useRef(null);
@@ -14,7 +15,7 @@ function Canvas({ Width, Height, TextType, Text, Text1, Text2 }) {
     context.font = "50px Arial";
 
     if (TextType) {
-      context.fillText(Text, canvas.width / 2, canvas.height / 2);
+      context.fillText(Text, canvas.width / 2, canvas.height / 2 + 50 / 2);
     } else {
       context.fillText(Text1, canvas.width / 2, canvas.height / 2 - 50 / 1.5);
       context.fillText(Text2, canvas.width / 2, canvas.height / 2 + 50 / 1.5);

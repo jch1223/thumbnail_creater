@@ -47,6 +47,7 @@ function App() {
 
 const AppWrap = styled.div`
   display: flex;
+  height: 100%;
 `;
 
 export default App;
