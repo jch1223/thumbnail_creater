@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "antd";
+import { Button, Input } from "antd";
 import styled from "styled-components";
 
 function SizeControl({ Width, Height, setWidth, setHeight }) {
@@ -19,30 +19,31 @@ function SizeControl({ Width, Height, setWidth, setHeight }) {
         <SizeWrap>
           <div className="size">
             <div>
-              <span>가로 </span>
-              <input
+              <Input
                 type="text"
+                addonBefore="가로"
                 value={InputWidth}
                 onChange={(e) => {
                   setInputWidth(e.target.value);
                 }}
-              />
+              ></Input>
             </div>
-
             <div>
-              <span>세로 </span>
-              <input
+              <Input
                 type="text"
+                addonBefore="세로"
                 value={InputHeight}
                 onChange={(e) => {
                   setInputHeight(e.target.value);
                 }}
-              />
+              ></Input>
             </div>
           </div>
 
           <div>
-            <Button onClick={applySize}>적용</Button>
+            <Button htmlType="submit" onClick={applySize}>
+              적용
+            </Button>
           </div>
         </SizeWrap>
       </form>
@@ -52,6 +53,7 @@ function SizeControl({ Width, Height, setWidth, setHeight }) {
 
 const SizeWrap = styled.div`
   display: flex;
+  justify-content: center;
 
   .size {
     margin-right: 10px;

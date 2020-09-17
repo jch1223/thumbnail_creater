@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 
-function Canvas({ Width, Height, Text1, Text2 }) {
+function Canvas({ Width, Height, TextType, Text, Text1, Text2 }) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -12,9 +12,14 @@ function Canvas({ Width, Height, Text1, Text2 }) {
 
     context.textAlign = "center";
     context.font = "50px Arial";
-    context.fillText(Text1, canvas.width / 2, canvas.height / 2 - 25);
-    context.fillText(Text2, canvas.width / 2, canvas.height / 2 + 40);
-  }, [Width, Height, Text1, Text2]);
+
+    if (TextType) {
+      context.fillText(Text, canvas.width / 2, canvas.height / 2);
+    } else {
+      context.fillText(Text1, canvas.width / 2, canvas.height / 2 - 50 / 1.5);
+      context.fillText(Text2, canvas.width / 2, canvas.height / 2 + 50 / 1.5);
+    }
+  }, [Width, Height, TextType, Text, Text1, Text2]);
 
   return (
     <div>

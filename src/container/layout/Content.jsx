@@ -2,10 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import Canvas from "../../components/Canvas";
 
-function Content({ Width, Height, Text1, Text2 }) {
+function Content({ Width, Height, TextType, Text, Text1, Text2 }) {
   return (
     <CanvasWrap>
-      <Canvas Width={Width} Height={Height} Text1={Text1} Text2={Text2} />
+      <Canvas
+        TextType={TextType}
+        Width={Width}
+        Height={Height}
+        Text={Text}
+        Text1={Text1}
+        Text2={Text2}
+      />
     </CanvasWrap>
   );
 }
