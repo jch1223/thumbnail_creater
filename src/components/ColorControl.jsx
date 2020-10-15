@@ -1,6 +1,7 @@
 import React from "react";
 import { SketchPicker } from "react-color";
 import { useState } from "react";
+import styled from "styled-components";
 
 function ColorControl(props) {
   const [state, setstate] = useState("#fff");
@@ -16,7 +17,7 @@ function ColorControl(props) {
   return (
     <div>
       <p>백그라운드</p>
-      <SketchPicker
+      <SketchPickerStyled
         color={state}
         onChangeComplete={handleChangeComplete}
         onChange={handleChange}
@@ -25,5 +26,9 @@ function ColorControl(props) {
     </div>
   );
 }
+
+const SketchPickerStyled = styled(SketchPicker)`
+  margin: auto;
+`;
 
 export default ColorControl;

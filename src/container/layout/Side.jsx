@@ -39,7 +39,7 @@ function Side({
         TextSize={TextSize}
         setTextSize={setTextSize}
       />
-      <ColorControl color="orange" onChangeComplete={handleColorChange} />
+      <ColorControl />
     </ControlsWrap>
   );
 }
