@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import styled from "styled-components";
 
-function Canvas({ Width, Height, TextType, Text, Text1, Text2 }) {
+function Canvas({ Width, Height, TextType, Text, Text1, Text2, TextSize }) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -12,15 +12,27 @@ function Canvas({ Width, Height, TextType, Text, Text1, Text2 }) {
     canvas.height = Height;
 
     context.textAlign = "center";
-    context.font = "50px Arial";
+    context.font = `${TextSize}px Arial`;
 
     if (TextType) {
-      context.fillText(Text, canvas.width / 2, (canvas.height / 2) + (50 / 2));
+      context.fillText(
+        Text,
+        canvas.width / 2,
+        canvas.height / 2 + TextSize / 2
+      );
     } else {
-      context.fillText(Text1, canvas.width / 2, (canvas.height / 2)  + (50 / 2) - (50 / 1.5) );
-      context.fillText(Text2, canvas.width / 2, (canvas.height / 2)  + (50 / 2) + (50 / 1.5) );
+      context.fillText(
+        Text1,
+        canvas.width / 2,
+        canvas.height / 2 + TextSize / 2 - TextSize / 1.5
+      );
+      context.fillText(
+        Text2,
+        canvas.width / 2,
+        canvas.height / 2 + TextSize / 2 + TextSize / 1.5
+      );
     }
-  }, [Width, Height, TextType, Text, Text1, Text2]);
+  }, [Width, Height, TextType, Text, Text1, Text2, TextSize]);
 
   return (
     <div>

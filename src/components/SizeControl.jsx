@@ -14,7 +14,7 @@ function SizeControl({ Width, Height, setWidth, setHeight }) {
 
   return (
     <div>
-      <p>크기</p>
+      <p>백그라운드 크기</p>
       <form onSubmit={applySize}>
         <SizeWrap>
           <div className="size">
@@ -47,6 +47,8 @@ function SizeControl({ Width, Height, setWidth, setHeight }) {
           </div>
         </SizeWrap>
       </form>
+
+      <br />
     </div>
   );
 }

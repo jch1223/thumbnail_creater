@@ -15,6 +15,8 @@ function Side({
   setText2,
   setWidth,
   setHeight,
+  TextSize,
+  setTextSize,
 }) {
   return (
     <ControlsWrap>
@@ -23,15 +25,17 @@ function Side({
         Height={Height}
         setWidth={setWidth}
         setHeight={setHeight}
-        Text={Text}
-        Text1={Text1}
-        Text2={Text2}
       />
       <TextControl
         setTextType={setTextType}
+        Text={Text}
+        Text1={Text1}
+        Text2={Text2}
         setText={setText}
         setText1={setText1}
         setText2={setText2}
+        TextSize={TextSize}
+        setTextSize={setTextSize}
       />
     </ControlsWrap>
   );

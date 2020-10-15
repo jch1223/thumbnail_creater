@@ -13,6 +13,7 @@ function App() {
   const [Text, setText] = useState("텍스트를 입력하세요");
   const [Text1, setText1] = useState("텍스트를");
   const [Text2, setText2] = useState("입력하세요");
+  const [TextSize, setTextSize] = useState("50");
 
   useEffect(() => {
     console.log(TextType);
@@ -27,6 +28,7 @@ function App() {
         Text={Text}
         Text1={Text1}
         Text2={Text2}
+        TextSize={TextSize}
       />
       <Side
         Width={Width}
@@ -40,6 +42,8 @@ function App() {
         setText={setText}
         setText1={setText1}
         setText2={setText2}
+        TextSize={TextSize}
+        setTextSize={setTextSize}
       />
     </AppWrap>
   );
