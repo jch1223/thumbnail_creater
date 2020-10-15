@@ -70,6 +70,8 @@ function TextControl({
   );
 }
 
-const TextWrap = styled.div``;
+const TextWrap = styled.div`
+  padding-bottom: 20px;
+`;
 
 export default TextControl;

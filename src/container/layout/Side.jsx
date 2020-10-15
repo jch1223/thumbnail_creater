@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import SizeControl from "../../components/SizeControl";
 import TextControl from "../../components/TextControl";
+import ColorControl from "../../components/ColorControl";
 
 function Side({
   Width,
@@ -18,6 +19,7 @@ function Side({
   TextSize,
   setTextSize,
 }) {
+  const handleColorChange = ({ hex }) => console.log(hex);
   return (
     <ControlsWrap>
       <SizeControl
@@ -37,6 +39,7 @@ function Side({
         TextSize={TextSize}
         setTextSize={setTextSize}
       />
+      <ColorControl color="orange" onChangeComplete={handleColorChange} />
     </ControlsWrap>
   );
 }
