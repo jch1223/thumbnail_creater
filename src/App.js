@@ -30,6 +30,7 @@ function App() {
         Text2={Text2}
         TextSize={TextSize}
       />
+
       <Side
         Width={Width}
         Height={Height}
