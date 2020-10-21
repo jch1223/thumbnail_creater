@@ -1,10 +1,20 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
 
-function Canvas({ Width, Height, TextType, Text, Text1, Text2, TextSize }) {
+function Canvas({
+  Width,
+  Height,
+  TextType,
+  Text,
+  Text1,
+  Text2,
+  TextSize,
+  Color,
+}) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
+    console.log(Color);
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
 
@@ -13,6 +23,7 @@ function Canvas({ Width, Height, TextType, Text, Text1, Text2, TextSize }) {
 
     context.textAlign = "center";
     context.font = `${TextSize}px Arial`;
+    context.fillStyle = "#fff";
 
     if (TextType) {
       context.fillText(
@@ -32,11 +43,11 @@ function Canvas({ Width, Height, TextType, Text, Text1, Text2, TextSize }) {
         canvas.height / 2 + TextSize / 2 + TextSize / 1.5
       );
     }
-  }, [Width, Height, TextType, Text, Text1, Text2, TextSize]);
+  }, [Width, Height, TextType, Text, Text1, Text2, TextSize, Color]);
 
   return (
     <div>
-      <canvas ref={canvasRef} style={{ background: "#e2e2e2" }} />
+      <canvas ref={canvasRef} style={{ background: Color }} />
     </div>
   );
 }

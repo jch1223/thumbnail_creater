@@ -18,8 +18,10 @@ function Side({
   setHeight,
   TextSize,
   setTextSize,
+  Color,
+  handleChangeComplete,
+  handleChange,
 }) {
-  const handleColorChange = ({ hex }) => console.log(hex);
   return (
     <ControlsWrap>
       <SizeControl
@@ -39,7 +41,11 @@ function Side({
         TextSize={TextSize}
         setTextSize={setTextSize}
       />
-      <ColorControl />
+      <ColorControl
+        Color={Color}
+        handleChangeComplete={handleChangeComplete}
+        handleChange={handleChange}
+      />
     </ControlsWrap>
   );
 }

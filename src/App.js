@@ -9,15 +9,28 @@ import "antd/dist/antd.css";
 function App() {
   const [Width, setWidth] = useState(500);
   const [Height, setHeight] = useState(500);
+
   const [TextType, setTextType] = useState(true);
   const [Text, setText] = useState("텍스트를 입력하세요");
   const [Text1, setText1] = useState("텍스트를");
   const [Text2, setText2] = useState("입력하세요");
   const [TextSize, setTextSize] = useState("50");
 
+  const [Color, setColor] = useState(
+    "#" + Math.floor(Math.random() * 16777215).toString(16)
+  );
+
   useEffect(() => {
     console.log(TextType);
   }, [TextType]);
+
+  const handleChangeComplete = (color) => {
+    setColor(color.hex);
+  };
+
+  const handleChange = (color, event) => {
+    setColor(color.hex);
+  };
 
   return (
     <AppWrap className="App">
@@ -29,6 +42,7 @@ function App() {
         Text1={Text1}
         Text2={Text2}
         TextSize={TextSize}
+        Color={Color}
       />
 
       <Side
@@ -45,6 +59,9 @@ function App() {
         setText2={setText2}
         TextSize={TextSize}
         setTextSize={setTextSize}
+        Color={Color}
+        handleChangeComplete={handleChangeComplete}
+        handleChange={handleChange}
       />
     </AppWrap>
   );
