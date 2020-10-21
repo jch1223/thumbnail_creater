@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Tabs, Input, Select, InputNumber, Row, Col } from "antd";
-const { Option } = Select;
+import { Tabs, Input, InputNumber, Row, Col } from "antd";
 
 const { TabPane } = Tabs;
 
