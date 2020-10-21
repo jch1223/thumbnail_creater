@@ -10,6 +10,7 @@ function Canvas({
   Text2,
   TextSize,
   Color,
+  handleDownloadURL,
 }) {
   const canvasRef = useRef(null);
 
@@ -18,20 +19,21 @@ function Canvas({
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
 
-    canvas.width = Width;
-    canvas.height = Height;
+    context.fillStyle = Color;
+    context.fillRect(0, 0, Width, Height);
 
     context.textAlign = "center";
     context.font = `${TextSize}px Arial`;
-    context.fillStyle = "#fff";
 
     if (TextType) {
+      context.fillStyle = "#fff";
       context.fillText(
         Text,
         canvas.width / 2,
         canvas.height / 2 + TextSize / 2
       );
     } else {
+      context.fillStyle = "#fff";
       context.fillText(
         Text1,
         canvas.width / 2,
@@ -43,11 +45,13 @@ function Canvas({
         canvas.height / 2 + TextSize / 2 + TextSize / 1.5
       );
     }
+    console.log(canvas.toDataURL("image/png"));
+    handleDownloadURL(canvas.toDataURL("image/png"));
   }, [Width, Height, TextType, Text, Text1, Text2, TextSize, Color]);
 
   return (
     <div>
-      <canvas ref={canvasRef} style={{ background: Color }} />
+      <canvas ref={canvasRef} width={Width} height={Height} />
     </div>
   );
 }

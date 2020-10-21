@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import Canvas from "../../components/Canvas";
+import { Button } from "antd";
+import { DownloadOutlined } from "@ant-design/icons";
 
 function Content({
   Width,
@@ -11,9 +13,11 @@ function Content({
   Text2,
   TextSize,
   Color,
+  DownLoadURL,
+  handleDownloadURL,
 }) {
   return (
-    <CanvasWrap>
+    <ContentWrap>
       <Canvas
         TextType={TextType}
         Width={Width}
@@ -23,19 +27,32 @@ function Content({
         Text2={Text2}
         TextSize={TextSize}
         Color={Color}
+        handleDownloadURL={handleDownloadURL}
       />
-    </CanvasWrap>
+
+      <a href={DownLoadURL} download="sample.png">
+        <ButtonStyled type="primary" icon={<DownloadOutlined />} size={"large"}>
+          Download
+        </ButtonStyled>
+      </a>
+    </ContentWrap>
   );
 }
 
-const CanvasWrap = styled.div`
+const ContentWrap = styled.div`
+  background-color: #282c34;
   overflow: scroll;
-  display: inline-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   width: 80%;
   height: 100%;
   border-right: 1px solid #e2e2e2;
-  justify-content: center;
-  align-items: center;
+`;
+
+const ButtonStyled = styled(Button)`
+  margin-top: 20px;
 `;
 
 export default Content;

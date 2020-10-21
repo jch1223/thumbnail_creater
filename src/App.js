@@ -20,6 +20,8 @@ function App() {
     "#" + Math.floor(Math.random() * 16777215).toString(16)
   );
 
+  const [DownLoadURL, setDownLoadURL] = useState("");
+
   useEffect(() => {
     console.log(TextType);
   }, [TextType]);
@@ -30,6 +32,10 @@ function App() {
 
   const handleChange = (color, event) => {
     setColor(color.hex);
+  };
+
+  const handleDownloadURL = (url) => {
+    setDownLoadURL(url);
   };
 
   return (
@@ -43,6 +49,8 @@ function App() {
         Text2={Text2}
         TextSize={TextSize}
         Color={Color}
+        DownLoadURL={DownLoadURL}
+        handleDownloadURL={handleDownloadURL}
       />
 
       <Side
