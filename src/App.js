@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import Content from "./container/layout/Content";
 import Side from "./container/layout/Side";
 import styled from "styled-components";
@@ -40,6 +41,15 @@ function App() {
 
   return (
     <AppWrap className="App">
+      <Helmet>
+        <title>썸네일 크리에이터</title>
+        <meta name="description" content="썸네일, 배너 생성기입니다." />
+        <meta
+          name="keywords"
+          content="썸네일, 배너, 생성기, 크리에이터, 만들기, 사이트, devmole"
+        />
+      </Helmet>
+
       <Content
         Width={Width}
         Height={Height}
