@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import SizeControl from "../../components/SizeControl";
-import TextControl from "../../components/TextControl";
-import ColorControl from "../../components/ColorControl";
+import SizeControl from "../components/SizeControl";
+import TextControl from "../components/TextControl";
+import ColorControl from "../components/ColorControl";
 
 function Side({
   Width,

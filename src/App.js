@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
-import Content from "./container/layout/Content";
-import Side from "./container/layout/Side";
+import Content from "./container/Content";
+import Side from "./container/Side";
 import styled from "styled-components";
 
 import "./App.css";

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Canvas from "../../components/Canvas";
+import Canvas from "../components/Canvas";
 import { Button } from "antd";
 import { DownloadOutlined } from "@ant-design/icons";
 

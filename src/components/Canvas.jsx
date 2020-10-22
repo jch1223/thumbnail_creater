@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from "react";
-import styled from "styled-components";
 
 function Canvas({
   Width,
@@ -47,7 +46,17 @@ function Canvas({
     }
     console.log(canvas.toDataURL("image/png"));
     handleDownloadURL(canvas.toDataURL("image/png"));
-  }, [Width, Height, TextType, Text, Text1, Text2, TextSize, Color]);
+  }, [
+    Width,
+    Height,
+    TextType,
+    Text,
+    Text1,
+    Text2,
+    TextSize,
+    Color,
+    handleDownloadURL,
+  ]);
 
   return (
     <div>
