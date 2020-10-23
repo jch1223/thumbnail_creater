@@ -1,16 +1,11 @@
 import React, { useRef, useEffect, useContext } from "react";
 import { SizeContext } from "../context/SizeProvider";
+import { TextContext } from "../context/TextProvider";
 
-function Canvas({
-  TextType,
-  Text,
-  Text1,
-  Text2,
-  TextSize,
-  Color,
-  handleDownloadURL,
-}) {
+function Canvas({ Color, handleDownloadURL }) {
   const { width, height } = useContext(SizeContext);
+  const { TextType, Text, Text1, Text2, TextSize } = useContext(TextContext);
+
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -24,7 +19,7 @@ function Canvas({
     context.textAlign = "center";
     context.font = `${TextSize}px Arial`;
 
-    if (TextType) {
+    if (TextType === "one-line") {
       context.fillStyle = "#fff";
       context.fillText(
         Text,
@@ -44,7 +39,6 @@ function Canvas({
         canvas.height / 2 + TextSize / 2 + TextSize / 1.5
       );
     }
-    console.log(canvas.toDataURL("image/png"));
     handleDownloadURL(canvas.toDataURL("image/png"));
   }, [
     width,

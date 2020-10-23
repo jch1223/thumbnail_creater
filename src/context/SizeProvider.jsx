@@ -24,17 +24,15 @@ const SizeProvider = ({ children }) => {
   const [state, sizeDispatch] = useReducer(reducer, initialState);
 
   return (
-    <>
-      <SizeContext.Provider
-        value={{
-          width: state.width,
-          height: state.height,
-          sizeDispatch,
-        }}
-      >
-        {children}
-      </SizeContext.Provider>
-    </>
+    <SizeContext.Provider
+      value={{
+        width: state.width,
+        height: state.height,
+        sizeDispatch,
+      }}
+    >
+      {children}
+    </SizeContext.Provider>
   );
 };
 
