@@ -5,8 +5,6 @@ import { Button } from "antd";
 import { DownloadOutlined } from "@ant-design/icons";
 
 function Content({
-  Width,
-  Height,
   TextType,
   Text,
   Text1,
@@ -20,8 +18,6 @@ function Content({
     <ContentWrap>
       <Canvas
         TextType={TextType}
-        Width={Width}
-        Height={Height}
         Text={Text}
         Text1={Text1}
         Text2={Text2}

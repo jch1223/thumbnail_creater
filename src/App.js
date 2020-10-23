@@ -8,9 +8,6 @@ import "./App.css";
 import "antd/dist/antd.css";
 
 function App() {
-  const [Width, setWidth] = useState(500);
-  const [Height, setHeight] = useState(500);
-
   const [TextType, setTextType] = useState(true);
   const [Text, setText] = useState("텍스트를 입력하세요");
   const [Text1, setText1] = useState("텍스트를");
@@ -51,8 +48,6 @@ function App() {
       </Helmet>
 
       <Content
-        Width={Width}
-        Height={Height}
         TextType={TextType}
         Text={Text}
         Text1={Text1}
@@ -64,11 +59,7 @@ function App() {
       />
 
       <Side
-        Width={Width}
-        Height={Height}
         setTextType={setTextType}
-        setWidth={setWidth}
-        setHeight={setHeight}
         Text={Text}
         Text1={Text1}
         Text2={Text2}

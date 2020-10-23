@@ -5,8 +5,6 @@ import TextControl from "../components/TextControl";
 import ColorControl from "../components/ColorControl";
 
 function Side({
-  Width,
-  Height,
   setTextType,
   Text,
   Text1,
@@ -14,8 +12,6 @@ function Side({
   setText,
   setText1,
   setText2,
-  setWidth,
-  setHeight,
   TextSize,
   setTextSize,
   Color,
@@ -24,12 +20,7 @@ function Side({
 }) {
   return (
     <ControlsWrap>
-      <SizeControl
-        Width={Width}
-        Height={Height}
-        setWidth={setWidth}
-        setHeight={setHeight}
-      />
+      <SizeControl />
       <TextControl
         setTextType={setTextType}
         Text={Text}

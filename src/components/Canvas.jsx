@@ -1,8 +1,7 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useContext } from "react";
+import { SizeContext } from "../context/SizeProvider";
 
 function Canvas({
-  Width,
-  Height,
   TextType,
   Text,
   Text1,
@@ -11,6 +10,7 @@ function Canvas({
   Color,
   handleDownloadURL,
 }) {
+  const { width, height } = useContext(SizeContext);
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ function Canvas({
     const context = canvas.getContext("2d");
 
     context.fillStyle = Color;
-    context.fillRect(0, 0, Width, Height);
+    context.fillRect(0, 0, width, height);
 
     context.textAlign = "center";
     context.font = `${TextSize}px Arial`;
@@ -47,8 +47,8 @@ function Canvas({
     console.log(canvas.toDataURL("image/png"));
     handleDownloadURL(canvas.toDataURL("image/png"));
   }, [
-    Width,
-    Height,
+    width,
+    height,
     TextType,
     Text,
     Text1,
@@ -60,7 +60,7 @@ function Canvas({
 
   return (
     <div>
-      <canvas ref={canvasRef} width={Width} height={Height} />
+      <canvas ref={canvasRef} width={width} height={height} />
     </div>
   );
 }

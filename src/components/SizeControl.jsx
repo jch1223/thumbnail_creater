@@ -1,52 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { SizeContext } from "../context/SizeProvider";
+
 import { Button, Input } from "antd";
 import styled from "styled-components";
 
-function SizeControl({ Width, Height, setWidth, setHeight }) {
-  const [InputWidth, setInputWidth] = useState(Width);
-  const [InputHeight, setInputHeight] = useState(Height);
-
-  const applySize = (e) => {
-    e.preventDefault();
-    setWidth(InputWidth);
-    setHeight(InputHeight);
-  };
+function SizeControl() {
+  const { width, height, sizeDispatch } = useContext(SizeContext);
 
   return (
     <div>
       <p>백그라운드 크기</p>
-      <form onSubmit={applySize}>
-        <SizeWrap>
-          <div className="size">
-            <div>
-              <Input
-                type="text"
-                addonBefore="가로"
-                value={InputWidth}
-                onChange={(e) => {
-                  setInputWidth(e.target.value);
-                }}
-              ></Input>
-            </div>
-            <div>
-              <Input
-                type="text"
-                addonBefore="세로"
-                value={InputHeight}
-                onChange={(e) => {
-                  setInputHeight(e.target.value);
-                }}
-              ></Input>
-            </div>
-          </div>
-
-          <div>
-            <Button htmlType="submit" onClick={applySize}>
-              적용
-            </Button>
-          </div>
-        </SizeWrap>
-      </form>
+      <SizeWrap>
+        <Input
+          type="text"
+          addonBefore="가로"
+          value={width}
+          onChange={(e) => {
+            sizeDispatch({ type: "SET_WIDTH", width: e.target.value });
+          }}
+        ></Input>
+        <Input
+          type="text"
+          addonBefore="세로"
+          value={height}
+          onChange={(e) => {
+            sizeDispatch({ type: "SET_HEIGHT", height: e.target.value });
+          }}
+        ></Input>
+      </SizeWrap>
 
       <br />
     </div>
@@ -57,11 +38,8 @@ const SizeWrap = styled.div`
   display: flex;
   justify-content: center;
 
-  .size {
+  .ant-input-group-wrapper:first-child {
     margin-right: 10px;
-  }
-  button {
-    height: 100%;
   }
 `;
 
