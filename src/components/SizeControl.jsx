@@ -1,7 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { SizeContext } from "../context/SizeProvider";
+import { SET_WIDTH, SET_HEIGHT } from "../context/type";
 
-import { Button, Input } from "antd";
+import { Input } from "antd";
 import styled from "styled-components";
 
 function SizeControl() {
@@ -16,7 +17,7 @@ function SizeControl() {
           addonBefore="가로"
           value={width}
           onChange={(e) => {
-            sizeDispatch({ type: "SET_WIDTH", width: e.target.value });
+            sizeDispatch({ type: SET_WIDTH, width: e.target.value });
           }}
         ></Input>
         <Input
@@ -24,7 +25,7 @@ function SizeControl() {
           addonBefore="세로"
           value={height}
           onChange={(e) => {
-            sizeDispatch({ type: "SET_HEIGHT", height: e.target.value });
+            sizeDispatch({ type: SET_HEIGHT, height: e.target.value });
           }}
         ></Input>
       </SizeWrap>

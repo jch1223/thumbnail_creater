@@ -1,4 +1,5 @@
 import React, { useReducer } from "react";
+import { SET_WIDTH, SET_HEIGHT } from "./type";
 
 export const SizeContext = React.createContext();
 
@@ -9,9 +10,9 @@ const initialState = {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "SET_WIDTH":
+    case SET_WIDTH:
       return { ...state, width: action.width };
-    case "SET_HEIGHT":
+    case SET_HEIGHT:
       return { ...state, height: action.height };
 
     default:
