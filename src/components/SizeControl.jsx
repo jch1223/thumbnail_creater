@@ -5,7 +5,7 @@ import { SET_WIDTH, SET_HEIGHT } from "../context/type";
 import { Input } from "antd";
 import styled from "styled-components";
 
-function SizeControl() {
+const SizeControl = () => {
   const { width, height, sizeDispatch } = useContext(SizeContext);
 
   return (
@@ -33,7 +33,7 @@ function SizeControl() {
       <br />
     </div>
   );
-}
+};
 
 const SizeWrap = styled.div`
   display: flex;

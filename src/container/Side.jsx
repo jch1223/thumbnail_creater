@@ -4,34 +4,11 @@ import SizeControl from "../components/SizeControl";
 import TextControl from "../components/TextControl";
 import ColorControl from "../components/ColorControl";
 
-function Side({
-  setTextType,
-  Text,
-  Text1,
-  Text2,
-  setText,
-  setText1,
-  setText2,
-  TextSize,
-  setTextSize,
-  Color,
-  handleChangeComplete,
-  handleChange,
-}) {
+const Side = ({ Color, handleChangeComplete, handleChange }) => {
   return (
     <ControlsWrap>
       <SizeControl />
-      <TextControl
-        setTextType={setTextType}
-        Text={Text}
-        Text1={Text1}
-        Text2={Text2}
-        setText={setText}
-        setText1={setText1}
-        setText2={setText2}
-        TextSize={TextSize}
-        setTextSize={setTextSize}
-      />
+      <TextControl />
       <ColorControl
         Color={Color}
         handleChangeComplete={handleChangeComplete}
@@ -39,7 +16,7 @@ function Side({
       />
     </ControlsWrap>
   );
-}
+};
 
 const ControlsWrap = styled.div`
   width: 20%;

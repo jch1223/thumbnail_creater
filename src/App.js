@@ -7,13 +7,7 @@ import styled from "styled-components";
 import "./App.css";
 import "antd/dist/antd.css";
 
-function App() {
-  const [TextType_delete, setTextType] = useState(true);
-  const [Text_delete, setText] = useState("텍스트를 입력하세요");
-  const [Text1_delete, setText1] = useState("텍스트를");
-  const [Text2_delete, setText2] = useState("입력하세요");
-  const [TextSize_delete, setTextSize] = useState("50");
-
+const App = () => {
   const [Color, setColor] = useState(
     "#" + Math.floor(Math.random() * 16777215).toString(16)
   );
@@ -50,18 +44,13 @@ function App() {
       />
 
       <Side
-        setTextType={setTextType}
-        setText={setText}
-        setText1={setText1}
-        setText2={setText2}
-        setTextSize={setTextSize}
         Color={Color}
         handleChangeComplete={handleChangeComplete}
         handleChange={handleChange}
       />
     </AppWrap>
   );
-}
+};
 
 const AppWrap = styled.div`
   display: flex;

@@ -1,28 +1,33 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { Tabs, Input, InputNumber, Row, Col } from "antd";
+import { TextContext } from "../context/TextProvider";
+import {
+  SET_TEXT_TYPE,
+  SET_ONELINE_TEXT,
+  SET_TWOLINE_TEXT1,
+  SET_TWOLINE_TEXT2,
+  SET_TEXT_SIZE,
+} from "../context/type";
 
 const { TabPane } = Tabs;
 
-function TextControl({
-  setTextType,
-  Text,
-  Text1,
-  Text2,
-  setText,
-  setText1,
-  setText2,
-  TextSize,
-  setTextSize,
-}) {
-  function callback(key) {
+const TextControl = () => {
+  const { Text, Text1, Text2, TextSize, textDispatch } = useContext(
+    TextContext
+  );
+
+  const tabHandler = (key) => {
     if (key === "2") {
-      setTextType(false);
+      textDispatch({ type: SET_TEXT_TYPE, TextType: "two-line" });
     } else {
-      setTextType(true);
+      textDispatch({ type: SET_TEXT_TYPE, TextType: "one-line" });
     }
-    console.log(key);
-  }
+  };
+
+  const textHandler = (type) => (e) => {
+    textDispatch({ type: type, Text: e.target.value });
+  };
 
   return (
     <TextWrap>
@@ -32,7 +37,9 @@ function TextControl({
           <InputNumber
             style={{ width: "100%" }}
             value={TextSize}
-            onChange={setTextSize}
+            onChange={(value) => {
+              textDispatch({ type: SET_TEXT_SIZE, TextSize: value });
+            }}
           />
         </Col>
         <Col span={4} style={{ fontSize: "20px", padding: "0" }}>
@@ -42,12 +49,12 @@ function TextControl({
 
       <br />
 
-      <Tabs defaultActiveKey="1" onChange={callback}>
+      <Tabs defaultActiveKey="1" onChange={tabHandler}>
         <TabPane tab="한 줄 텍스트" key="1">
           <Row>
             <Input
               placeholder="한 줄 텍스트"
-              onChange={(e) => setText(e.target.value)}
+              onChange={textHandler(SET_ONELINE_TEXT)}
               value={Text}
             />
           </Row>
@@ -55,19 +62,19 @@ function TextControl({
         <TabPane tab="두 줄 텍스트" key="2">
           <Input
             placeholder="첫번째 줄 텍스트"
-            onChange={(e) => setText1(e.target.value)}
+            onChange={textHandler(SET_TWOLINE_TEXT1)}
             value={Text1}
           />
           <Input
             placeholder="두번째 줄 텍스트"
-            onChange={(e) => setText2(e.target.value)}
+            onChange={textHandler(SET_TWOLINE_TEXT2)}
             value={Text2}
           />
         </TabPane>
       </Tabs>
     </TextWrap>
   );
-}
+};
 
 const TextWrap = styled.div`
   padding-bottom: 20px;

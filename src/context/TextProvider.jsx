@@ -1,5 +1,11 @@
 import React, { useReducer } from "react";
-import {} from "./type";
+import {
+  SET_TEXT_TYPE,
+  SET_ONELINE_TEXT,
+  SET_TWOLINE_TEXT1,
+  SET_TWOLINE_TEXT2,
+  SET_TEXT_SIZE,
+} from "./type";
 
 export const TextContext = React.createContext();
 
@@ -13,8 +19,16 @@ const initialState = {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "SET_WIDTH":
-      return { ...state, width: action.width };
+    case SET_TEXT_TYPE:
+      return { ...state, TextType: action.TextType };
+    case SET_ONELINE_TEXT:
+      return { ...state, Text: action.Text };
+    case SET_TWOLINE_TEXT1:
+      return { ...state, Text1: action.Text };
+    case SET_TWOLINE_TEXT2:
+      return { ...state, Text2: action.Text };
+    case SET_TEXT_SIZE:
+      return { ...state, TextSize: action.TextSize };
 
     default:
       throw new Error();

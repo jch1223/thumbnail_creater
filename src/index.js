@@ -5,11 +5,14 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
 import SizeProvider from "./context/SizeProvider";
+import TextProvider from "./context/TextProvider";
 
 ReactDOM.render(
   <React.StrictMode>
     <SizeProvider>
-      <App />
+      <TextProvider>
+        <App />
+      </TextProvider>
     </SizeProvider>
   </React.StrictMode>,
   document.getElementById("root")

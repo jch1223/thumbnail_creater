@@ -4,27 +4,10 @@ import Canvas from "../components/Canvas";
 import { Button } from "antd";
 import { DownloadOutlined } from "@ant-design/icons";
 
-function Content({
-  TextType,
-  Text,
-  Text1,
-  Text2,
-  TextSize,
-  Color,
-  DownLoadURL,
-  handleDownloadURL,
-}) {
+function Content({ Color, DownLoadURL, handleDownloadURL }) {
   return (
     <ContentWrap>
-      <Canvas
-        TextType={TextType}
-        Text={Text}
-        Text1={Text1}
-        Text2={Text2}
-        TextSize={TextSize}
-        Color={Color}
-        handleDownloadURL={handleDownloadURL}
-      />
+      <Canvas Color={Color} handleDownloadURL={handleDownloadURL} />
 
       <a href={DownLoadURL} download="sample.png">
         <ButtonStyled type="primary" icon={<DownloadOutlined />} size={"large"}>
