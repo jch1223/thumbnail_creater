@@ -4,7 +4,7 @@ import { Tabs, Input, InputNumber, Row, Col } from "antd";
 
 const { TabPane } = Tabs;
 
-function TextControl({
+const TextControl = ({
   setTextType,
   Text,
   Text1,
@@ -14,15 +14,15 @@ function TextControl({
   setText2,
   TextSize,
   setTextSize,
-}) {
-  function callback(key) {
+}) => {
+  const callback = (key) => {
     if (key === "2") {
       setTextType(false);
     } else {
       setTextType(true);
     }
     console.log(key);
-  }
+  };
 
   return (
     <TextWrap>
@@ -67,7 +67,7 @@ function TextControl({
       </Tabs>
     </TextWrap>
   );
-}
+};
 
 const TextWrap = styled.div`
   padding-bottom: 20px;

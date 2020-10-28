@@ -7,7 +7,7 @@ import styled from "styled-components";
 import "./App.css";
 import "antd/dist/antd.css";
 
-function App() {
+const App = () => {
   const [Width, setWidth] = useState(500);
   const [Height, setHeight] = useState(500);
 
@@ -27,11 +27,7 @@ function App() {
     console.log(TextType);
   }, [TextType]);
 
-  const handleChangeComplete = (color) => {
-    setColor(color.hex);
-  };
-
-  const handleChange = (color, event) => {
+  const handleChange = (color) => {
     setColor(color.hex);
   };
 
@@ -78,12 +74,11 @@ function App() {
         TextSize={TextSize}
         setTextSize={setTextSize}
         Color={Color}
-        handleChangeComplete={handleChangeComplete}
         handleChange={handleChange}
       />
     </AppWrap>
   );
-}
+};
 
 const AppWrap = styled.div`
   display: flex;

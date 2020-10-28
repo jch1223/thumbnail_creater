@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 
-function Canvas({
+const Canvas = ({
   Width,
   Height,
   TextType,
@@ -10,7 +10,7 @@ function Canvas({
   TextSize,
   Color,
   handleDownloadURL,
-}) {
+}) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -44,7 +44,6 @@ function Canvas({
         canvas.height / 2 + TextSize / 2 + TextSize / 1.5
       );
     }
-    console.log(canvas.toDataURL("image/png"));
     handleDownloadURL(canvas.toDataURL("image/png"));
   }, [
     Width,
@@ -63,6 +62,6 @@ function Canvas({
       <canvas ref={canvasRef} width={Width} height={Height} />
     </div>
   );
-}
+};
 
 export default Canvas;

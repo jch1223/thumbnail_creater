@@ -4,7 +4,7 @@ import Canvas from "../components/Canvas";
 import { Button } from "antd";
 import { DownloadOutlined } from "@ant-design/icons";
 
-function Content({
+const Content = ({
   Width,
   Height,
   TextType,
@@ -15,7 +15,7 @@ function Content({
   Color,
   DownLoadURL,
   handleDownloadURL,
-}) {
+}) => {
   return (
     <ContentWrap>
       <Canvas
@@ -37,7 +37,7 @@ function Content({
       </a>
     </ContentWrap>
   );
-}
+};
 
 const ContentWrap = styled.div`
   background-color: #282c34;

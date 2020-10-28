@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Input } from "antd";
 import styled from "styled-components";
 
-function SizeControl({ Width, Height, setWidth, setHeight }) {
+const SizeControl = ({ Width, Height, setWidth, setHeight }) => {
   const [InputWidth, setInputWidth] = useState(Width);
   const [InputHeight, setInputHeight] = useState(Height);
 
@@ -51,7 +51,7 @@ function SizeControl({ Width, Height, setWidth, setHeight }) {
       <br />
     </div>
   );
-}
+};
 
 const SizeWrap = styled.div`
   display: flex;
