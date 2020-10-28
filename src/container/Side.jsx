@@ -4,16 +4,12 @@ import SizeControl from "../components/SizeControl";
 import TextControl from "../components/TextControl";
 import ColorControl from "../components/ColorControl";
 
-const Side = ({ Color, handleChangeComplete, handleChange }) => {
+const Side = () => {
   return (
     <ControlsWrap>
       <SizeControl />
       <TextControl />
-      <ColorControl
-        Color={Color}
-        handleChangeComplete={handleChangeComplete}
-        handleChange={handleChange}
-      />
+      <ColorControl />
     </ControlsWrap>
   );
 };

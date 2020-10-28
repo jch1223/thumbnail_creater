@@ -6,12 +6,15 @@ import * as serviceWorker from "./serviceWorker";
 
 import SizeProvider from "./context/SizeProvider";
 import TextProvider from "./context/TextProvider";
+import CanvasProvider from "./context/CanvasProvider";
 
 ReactDOM.render(
   <React.StrictMode>
     <SizeProvider>
       <TextProvider>
-        <App />
+        <CanvasProvider>
+          <App />
+        </CanvasProvider>
       </TextProvider>
     </SizeProvider>
   </React.StrictMode>,

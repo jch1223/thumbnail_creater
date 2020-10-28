@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Helmet } from "react-helmet";
 import Content from "./container/Content";
 import Side from "./container/Side";
@@ -8,24 +8,6 @@ import "./App.css";
 import "antd/dist/antd.css";
 
 const App = () => {
-  const [Color, setColor] = useState(
-    "#" + Math.floor(Math.random() * 16777215).toString(16)
-  );
-
-  const [DownLoadURL, setDownLoadURL] = useState("");
-
-  const handleChangeComplete = (color) => {
-    setColor(color.hex);
-  };
-
-  const handleChange = (color, event) => {
-    setColor(color.hex);
-  };
-
-  const handleDownloadURL = (url) => {
-    setDownLoadURL(url);
-  };
-
   return (
     <AppWrap className="App">
       <Helmet>
@@ -37,17 +19,8 @@ const App = () => {
         />
       </Helmet>
 
-      <Content
-        Color={Color}
-        DownLoadURL={DownLoadURL}
-        handleDownloadURL={handleDownloadURL}
-      />
-
-      <Side
-        Color={Color}
-        handleChangeComplete={handleChangeComplete}
-        handleChange={handleChange}
-      />
+      <Content />
+      <Side />
     </AppWrap>
   );
 };

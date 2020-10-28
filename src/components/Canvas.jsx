@@ -1,19 +1,21 @@
 import React, { useRef, useEffect, useContext } from "react";
 import { SizeContext } from "../context/SizeProvider";
 import { TextContext } from "../context/TextProvider";
+import { CanvasContext } from "../context/CanvasProvider";
+import { SET_DOWNLOAD_URL } from "../context/type";
 
-function Canvas({ Color, handleDownloadURL }) {
+const Canvas = () => {
   const { width, height } = useContext(SizeContext);
   const { TextType, Text, Text1, Text2, TextSize } = useContext(TextContext);
+  const { BackgroundColor, canvasDispatch } = useContext(CanvasContext);
 
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    console.log(Color);
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
 
-    context.fillStyle = Color;
+    context.fillStyle = BackgroundColor;
     context.fillRect(0, 0, width, height);
 
     context.textAlign = "center";
@@ -39,7 +41,11 @@ function Canvas({ Color, handleDownloadURL }) {
         canvas.height / 2 + TextSize / 2 + TextSize / 1.5
       );
     }
-    handleDownloadURL(canvas.toDataURL("image/png"));
+
+    canvasDispatch({
+      type: SET_DOWNLOAD_URL,
+      DownLoadURL: canvas.toDataURL("image/png"),
+    });
   }, [
     width,
     height,
@@ -48,8 +54,8 @@ function Canvas({ Color, handleDownloadURL }) {
     Text1,
     Text2,
     TextSize,
-    Color,
-    handleDownloadURL,
+    BackgroundColor,
+    canvasDispatch,
   ]);
 
   return (
@@ -57,6 +63,6 @@ function Canvas({ Color, handleDownloadURL }) {
       <canvas ref={canvasRef} width={width} height={height} />
     </div>
   );
-}
+};
 
 export default Canvas;

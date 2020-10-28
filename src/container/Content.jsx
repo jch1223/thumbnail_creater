@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import Canvas from "../components/Canvas";
 import { Button } from "antd";
 import { DownloadOutlined } from "@ant-design/icons";
+import { CanvasContext } from "../context/CanvasProvider";
 
-function Content({ Color, DownLoadURL, handleDownloadURL }) {
+const Content = () => {
+  const { DownLoadURL } = useContext(CanvasContext);
+
   return (
     <ContentWrap>
-      <Canvas Color={Color} handleDownloadURL={handleDownloadURL} />
+      <Canvas />
 
       <a href={DownLoadURL} download="sample.png">
         <ButtonStyled type="primary" icon={<DownloadOutlined />} size={"large"}>
@@ -16,7 +19,7 @@ function Content({ Color, DownLoadURL, handleDownloadURL }) {
       </a>
     </ContentWrap>
   );
-}
+};
 
 const ContentWrap = styled.div`
   background-color: #282c34;
